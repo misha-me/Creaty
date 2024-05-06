@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class CharacterRigidbodyController : MonoBehaviour
 {
     private Rigidbody playerRigidbody;
-    [SerializeField] Transform playerRestartPoint;
 
     Vector3 moveDrection;
 
