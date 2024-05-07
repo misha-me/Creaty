@@ -6,10 +6,12 @@ using UnityEngine;
 public class Timer : MonoBehaviour
 {
     public TextMeshProUGUI timerText;
+    public Player playerScript;
 
     // Start is called before the first frame update
     void Start()
     {
+        playerScript = FindObjectOfType<Player>();
         timerText = GetComponent<TextMeshProUGUI>();
         StartCoroutine(TimerCoroutine(1));
     }
@@ -17,7 +19,7 @@ public class Timer : MonoBehaviour
     IEnumerator TimerCoroutine(int step)
     {
         int timeInSeconds = 0;
-        while (true)
+        while (!playerScript.gameOver)
         {
             yield return new WaitForSeconds(step);
             timeInSeconds += step;

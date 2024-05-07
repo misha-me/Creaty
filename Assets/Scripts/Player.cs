@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public bool gameOver;
+
     private AudioSource audioSource;
     [SerializeField] AudioClip pickupSound;
 
@@ -27,6 +29,7 @@ public class Player : MonoBehaviour
         }
         if (other.transform.CompareTag("Finish"))
         {
+            gameOver = true;
             GetComponent<CharacterInputManager>().enabled = false;
             FindObjectOfType<GameOverWindow>().OpenWindow();
             Debug.Log("FINISH!");
